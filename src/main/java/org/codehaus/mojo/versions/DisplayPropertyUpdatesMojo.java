@@ -114,7 +114,7 @@ public class DisplayPropertyUpdatesMojo
 
             // FIXME: Check the parameters -1 ? correct?
             ArtifactVersion winner = version.getNewestVersion( currentVersion, property, this.allowSnapshots,
-                                                               this.reactorProjects, this.getHelper(), false, -1 );
+                                                               session.getProjectDependencyGraph().getSortedProjects(), this.getHelper(), false, -1 );
 
             if ( winner != null && !currentVersion.equals( winner.toString() ) )
             {
